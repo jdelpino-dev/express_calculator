@@ -21,9 +21,9 @@ describe("API Routes", () => {
   });
 
   test("GET /stats/median?nums=1,2,3,4,5,6 should return median of 3.5", async () => {
-    const response = await request(app).get("/stats/median?nums=1,2,3,4,5");
+    const response = await request(app).get("/stats/median?nums=1,2,3,4,5,6");
     expect(response.status).toBe(200);
-    expect(response.body).toBeCloseTo({ operation: "median", value: 3.5 });
+    expect(response.body).toEqual({ operation: "median", value: 3.5 });
   });
 
   test("GET /stats/mode?nums=1,2,2,3,4,5 should return mode of 2", async () => {
@@ -46,14 +46,17 @@ describe("API Routes", () => {
   test("GET /stats/mean without nums should return 400 error", async () => {
     const response = await request(app).get("/stats/mean");
     expect(response.status).toBe(400);
-    expect(response.body).toEqual({ error: "nums are required" });
+    expect(response.body).toEqual({
+      error:
+        "A number or multiple numbers must be provided in the query string nums argument.",
+    });
   });
 
   test("GET /stats/mean with invalid nums should return 400 error", async () => {
     const response = await request(app).get("/stats/mean?nums=foo,2,3");
     expect(response.status).toBe(400);
     expect(response.body).toEqual({
-      error: "All elements in nums must be numbers",
+      error: "All elements in nums must be numbers.",
     });
   });
 });
