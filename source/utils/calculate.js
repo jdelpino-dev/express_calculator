@@ -18,6 +18,10 @@ const median = (nums) => {
 };
 
 const mode = (nums) => {
+  if (nums.length === 0) {
+    return NaN;
+  }
+
   const freq = {};
   let maxFreq = 0;
   let modes = [];
@@ -32,7 +36,7 @@ const mode = (nums) => {
     }
   });
 
-  return modes.length === 1 ? modes[0] : modes;
+  return modes.length === 1 ? modes[0] : modes.sort((a, b) => a - b);
 };
 
 export { mean, median, mode };
