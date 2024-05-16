@@ -5,7 +5,7 @@
  */
 
 import request from "supertest";
-import app from "../src/app.js";
+import app from "../source/app.js";
 
 describe("API Routes", () => {
   test("GET /stats/mean?nums=1,2,3,4,5 should return mean of 3", async () => {

@@ -3,7 +3,7 @@
  * @description Unit tests for the statistical calculation functions (mean, median, mode) using Jest.
  */
 
-import { mean, median, mode } from "../src/utils/calculate.js";
+import { mean, median, mode } from "../source/utils/calculate.js";
 
 describe("Statistical Functions", () => {
   describe("Mean Function", () => {
