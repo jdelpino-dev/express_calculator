@@ -2,6 +2,9 @@
  * @file stats.js
  * @description Defines routes for calculating mean, median,
  * and mode statistics from a list of numbers.
+ *
+ * All routes handle requests asking for the results
+ * in JSON or TEXT/ HTML format.
  */
 
 import { Router } from "express";
